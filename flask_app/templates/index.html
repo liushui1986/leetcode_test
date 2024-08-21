@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Test Choices</title>
+</head>
+<body>
+    <h1>LeetCode Test Choices</h1>
+    <form action="/predict" method="POST">
+        <!-- Example Input Fields -->
+        <label for="input1">Input 1:</label>
+        <input type="text" id="input1" name="input1"><br><br>
+        <label for="input2">Input 2:</label>
+        <input type="text" id="input2" name="input2"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    <div id="result"></div>
+    
+    <script>
+        document.querySelector('form').onsubmit = async (e) => {
+            e.preventDefault();
+            const form = new FormData(e.target);
+            const response = await fetch('/predict', {
+                method: 'POST',
+                body: form
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = `Result: ${data.result}`;
+        };
+    </script>
+</body>
+</html>
