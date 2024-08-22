@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeetCode Tests Random Selector</title>
+</head>
+<body>
+    <h1>LeetCode Tests Random Selector</h1>
+    <form method='POST'>
+        <label for='n1'>Number of selections from Easy LeetCode Tests:</label>
+        <input type='text' id='n1' name='n1' required>
+        <br><br>
+        <label for='n2'>Number of selections from Hard LeetCode Tests:</label>
+        <input type='text' id='n2' name='n2' required>
+        <br><br>
+        <button type='submit'>Submit</button>
+    </form>
+
+    {% if result1 is not none and result2 is not none %}
+        <h2>Selected Tests:</h2>
+        <p>Easy LeetCode Tests: {{ result1 }}</p>
+        <p>Hard LeetCode Tests: {{ result2 }}</p>
+    {% elif result1 %}
+        <p>{{ result1 }}</p>
+    {% endif %}
+</body>
+</html>
